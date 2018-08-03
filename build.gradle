@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'net.saliman.properties' version '1.4.6'
+	id 'nebula.dependency-recommender' version '5.1.0'
+}
+
+repositories {
+	mavenLocal()
+	jcenter()
+}
+
+dependencyRecommendations {
+	map recommendations: [
+			'org.apache.poi:poi': '3.17',
+			'org.apache.poi:poi-ooxml': '3.17',
+
+			'itextVersion': '5.5.4',
+			'com.itextpdf:itextpdf': '$itextVersion',
+			'com.itextpdf:itext-pdfa': '$itextVersion',
+			'com.itextpdf:itext-xtra': '$itextVersion',
+			'com.itextpdf.tool:xmlworker': '$itextVersion',
+
+			'guavaVersion': '21.0',
+			'com.google.guava:guava': '$guavaVersion'
+	]
+}
+
+dependencies {
+	implementation("org.apache.poi:poi")
+	implementation("org.apache.poi:poi-ooxml")
+	implementation("com.itextpdf:itextpdf")
+	implementation("com.itextpdf:itext-pdfa")
+	implementation("com.itextpdf:itext-xtra")
+	implementation("com.itextpdf.tool:xmlworker")
+	implementation("com.google.guava:guava")
+}
+
+wrapper {
+	distributionType = Wrapper.DistributionType.ALL
+}
