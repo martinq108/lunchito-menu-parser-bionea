@@ -98,6 +98,10 @@ public class MealParser {
 			StringBuilder out = new StringBuilder();
 			while (rowIterator.hasNext()) {
 				Row row = rowIterator.next();
+				if (row == null) {
+					rowIterator.revert();
+					break;
+				}
 				Cell cell = row.getCell(column);
 				if (cell == null) {
 					rowIterator.revert();

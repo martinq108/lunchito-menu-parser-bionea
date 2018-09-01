@@ -34,7 +34,8 @@ class RowIterator implements Iterator<Row> {
 		if (rowNum > lastRow) {
 			throw new NoSuchElementException("No more rows for the record");
 		}
-		return sheet.getRow(rowNum++);
+		Row row = sheet.getRow(rowNum++);
+		return row;
 //		Row row = sheet.getRow(rowNum++);
 //		if (row != null) {
 //			Cell cell = row.getCell(1);

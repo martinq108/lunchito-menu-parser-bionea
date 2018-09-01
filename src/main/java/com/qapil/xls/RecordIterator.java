@@ -50,7 +50,7 @@ public class RecordIterator<T> implements Iterator<T> {
 				}
 			}
 		}
-		if (!prepared) {
+		if (!prepared && lastMatch != -1) {
 			prevMatch = lastMatch;
 			lastMatch = rowIterator.getLastRowNum()+1;
 			if (prevMatch != lastMatch) {
